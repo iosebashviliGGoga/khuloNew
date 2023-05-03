@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.71fcff29.css",
+    "main.js": "/static/js/main.efe3a4a3.js",
+    "static/media/contact.png": "/static/media/contact.a3945149d482195aa563.png",
+    "static/media/FiraGO-Light.otf": "/static/media/FiraGO-Light.1ac09e18761d0a91fc33.otf",
+    "static/media/FiraGO-Bold.ttf": "/static/media/FiraGO-Bold.6873f2abdb06d26ed2be.ttf",
+    "static/media/FiraGO-Medium.ttf": "/static/media/FiraGO-Medium.c20fbd9f06e6da20dccf.ttf",
+    "static/media/FiraGO-Regular.ttf": "/static/media/FiraGO-Regular.efd740cb5d33df44d91b.ttf",
+    "static/media/173417813_269803324792866__n.png": "/static/media/173417813_269803324792866_7484884227845132997_n.866fd6a916b1b5fe4034.png",
+    "static/media/bpg_mrgvlovani_caps_2010.ttf": "/static/media/bpg_mrgvlovani_caps_2010.e513097f7966a38f9d9f.ttf",
+    "static/media/bpg_mrgvlovani_2009.ttf": "/static/media/bpg_mrgvlovani_2009.d8afe6e5759301aac0c1.ttf",
+    "static/media/anonsebinew.png": "/static/media/anonsebinew.e0040f41db99e56af67e.png",
+    "static/media/komisiebi.png": "/static/media/komisiebi.6bca13f3f5719a0da791.png",
+    "static/media/Group 272.png": "/static/media/Group 272.5928dbebe14d8de2c2e2.png",
+    "static/media/logo.png": "/static/media/logo.8835458880728ff9ddbb.png",
+    "static/media/Group 271.png": "/static/media/Group 271.687190b96820a4c24ac7.png",
+    "static/media/bpg_nino_mtavruli_bold.ttf": "/static/media/bpg_nino_mtavruli_bold.43eacc71b8fa4cfe138c.ttf",
+    "static/media/Group 270.png": "/static/media/Group 270.ed878de11deb7c25e99c.png",
+    "static/media/miweremers.png": "/static/media/miweremers.8fdc6c7d0d903d41d0ea.png",
+    "static/media/meriaSamarlebriviaqtebi.png": "/static/media/meriaSamarlebriviaqtebi.c33726eaf74328cf181a.png",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "index.html": "/index.html",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "main.71fcff29.css.map": "/static/css/main.71fcff29.css.map",
+    "main.efe3a4a3.js.map": "/static/js/main.efe3a4a3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.71fcff29.css",
+    "static/js/main.efe3a4a3.js"
+  ]
+}
