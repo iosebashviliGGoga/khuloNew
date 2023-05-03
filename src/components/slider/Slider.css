@@ -1,0 +1,139 @@
+
+  @media screen and (max-width: 700px){
+    .container-slider {
+    
+     
+    }
+  }
+  
+  .slide {
+    width: 100%;
+    height: 780px;
+    position: absolute;
+    opacity: 0;
+    transition: opacity ease-in-out 0.5s;
+  }
+  .slide img {
+    width: 100%;
+    height: 100%;
+    
+  }
+  .active-anim {
+    opacity: 1;
+  }
+  
+
+  
+  
+  
+  
+  .container-dots {
+    position: absolute;
+    top: 700px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  .dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #f1f1f1;
+    margin: 0 5px;
+    background: #f1f1f1;
+  }
+  .dot.active {
+    background:#00A859 ;
+  }
+    .container-text{
+      padding-top: 395px;
+      width: 30vw;
+      display: flex;
+      flex-direction: column;
+      
+    }
+    .test{
+      position: absolute;
+      padding-top: 250px;
+      color: red;
+      width: 30vw;
+
+    }
+  .container-text span{
+    font-family: Firago-Regular;
+    font-size: 30px;
+    color: white;
+    z-index: 5;
+    position: relative;
+    font-feature-settings: 'case' on;
+  }
+  .container-text button{
+    margin-top: 20px;
+   
+    border-radius: 50px;
+    border: none;
+    width: 190px;
+    font-family: Firago-Medium;
+    font-size: 16px;
+    color: white;
+    z-index: 5;
+    position: relative;
+    transition: all 2s ease;
+    background-color: #78818A;
+  }
+
+  .container-text button:hover{
+    color: white;
+    background-color: #00A859;
+  }
+  .image-gradient{
+    opacity: 70%;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+     background-image: linear-gradient(#04243F, #04243F);
+     z-index: 20;
+
+  }
+  
+  @media only screen and (max-width: 1200px){
+    .container-text span{
+      font-size: 20px;
+    }
+  }
+
+  @media only screen and (max-width: 700px){
+    .container-text span{
+      font-size: 20px;
+    }
+    .container-text button{
+      width: 150px;
+    }
+    .slide{
+      height: 600px;
+    }
+    .container-text{
+      padding-top: 320px;
+    }
+    .container-dots{
+      top: 550px;
+    }
+    
+  }
+  @media only screen and (max-width: 500px){
+    .slide{
+      height: 500px;
+    }
+    .container-text{
+      padding-top: 160px;
+    }
+    .container-dots{
+      top: 440px;
+    }
+    .container-text span{
+      font-size: 17px;
+    }
+
+  }
+

@@ -1,0 +1,55 @@
+@font-face {
+  font-family: Mrgvlovani-regular;
+  src: local("Mrgvlovani-regular"),
+  url('./fonts/bpg_mrgvlovani_2009.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: Mrgvlovani-caps;
+  src: local("Mrgvlovani-caps"),
+  url('./fonts/bpg_mrgvlovani_caps_2010.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: Nino-Mtavruli-bold;
+  src: local("Nino-Mtavruli"),
+  url('./fonts/bpg_nino_mtavruli_bold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: Firago-Bold;
+  src: local("Firago-Bold"),
+  url('./fonts/FiraGO-Bold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: Firago-Medium;
+  src: local("Firago-Medium"),
+  url('./fonts/FiraGO-Medium.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: Firago-Regular;
+  src: local("Firago-Regular"),
+  url('./fonts/FiraGO-Regular.ttf') format("truetype");
+}
+@font-face {
+  font-family: Firago-Light;
+  src: local("Firago-Light"),
+  url('./fonts/FiraGO-Light.otf') format("opentype");
+}
+
+
+
+
+body {
+  margin: 0;
+ 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
