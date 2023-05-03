@@ -129,6 +129,16 @@ function Footer() {
                 </span>
                 {Object.entries(menu).map((qveItem) => {
                   if (item[1].cat_id == qveItem[1].parent_id && qveItem[1].level == 2) {
+                    if(item[1].name_geo == 'პრესცენტრი'){
+                      return <span><a href={`/${qveItem[1].slug}`}>
+                      <FaAngleRight />
+
+                      {language == 1 && qveItem[1].name_geo}
+                      {language == 2 && qveItem[1].name_eng}
+                      {language == 3 && qveItem[1].name_ru}
+
+                    </a></span>
+                    }
                     return <span><Link to={`/${qveItem[1].slug}`}>
                       <FaAngleRight />
 

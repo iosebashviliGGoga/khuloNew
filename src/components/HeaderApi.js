@@ -211,6 +211,29 @@ function HeaderApi() {
 
                       if (item[1].cat_id == qveItem[1].parent_id && qveItem[1].level == 2) {
                         // console.log(qveItem)
+                        if(item[1].name_geo == 'პრესცენტრი'){
+                          return <a href={`/${qveItem[1].slug}`} className='aqtebi'
+
+                          >
+  
+                            {language == 1 && qveItem[1].name_geo}
+                            {language == 2 && qveItem[1].name_eng}
+                            {language == 3 && qveItem[1].name_ru}
+                            <div className='aqtebi-a'>
+                              {Object.entries(menu).map(qveqveItem => {
+  
+                                if (qveqveItem[1].level == 3 && qveqveItem[1].parent_id == qveItem[1].cat_id) {
+                                  return <Link to={`${qveqveItem[1].slug}`}>
+                                    {language == 1 && qveqveItem[1].name_geo}
+                                    {language == 2 && qveqveItem[1].name_eng}
+                                    {language == 3 && qveqveItem[1].name_ru}
+                                  </Link>
+  
+                                }
+                              })}
+                            </div>
+                          </a>
+                        }
                         return <Link to={`/${qveItem[1].slug}`} className='aqtebi'
 
                         >
@@ -305,9 +328,22 @@ function HeaderApi() {
                         <ul>
                           {Object.entries(menu).length ? Object.entries(menu).map(qveItem => {
 
-
+                            
                             if (item[1].cat_id == qveItem[1].parent_id && qveItem[1].level == 2) {
+                              if(item[1].name_geo == 'პრესცენტრი'){
+                                return <li>
+                                <label htmlFor="">
+                                  <a href={`/${qveItem[1].slug}`} onClick={[handleBurgerButton, handlewraper]}>
 
+                                    {language == 1 && qveItem[1].name_geo}
+                                    {language == 2 && qveItem[1].name_eng}
+                                    {language == 3 && qveItem[1].name_ru}
+
+                                  </a>
+                                </label>
+                              </li>
+                              }
+                              
                               return <li>
                                 <label htmlFor="">
                                   <Link to={`/${qveItem[1].slug}`} onClick={[handleBurgerButton, handlewraper]}>
