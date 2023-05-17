@@ -83,6 +83,8 @@ import AdministraciuliDayofa from './components/AdministraciuliDayofa'
 import DefaultSkhdomisOqmebi from './components/skhdomisoqmebi/DefaultSkhdomisoqmebi'
 import MeriaSamartlebriviAqtebi from './components/MeriaSamartlebriviaqtebi'
 import SakrebuloAngarishebi from './components/SakrebuloAngarishebi'
+import AAIP from './components/AAIP'
+import MunicipalitetisBiujeti from './components/MunicipalitetisBiujeti'
 //import HeaderApi from './components/HeaderApi'
 function AnimatedRoutes() {
     const location = useLocation()
@@ -131,6 +133,7 @@ function AnimatedRoutes() {
                     <Route path='/meriis-samsakhurebi' element={<MeriaSamsakhurebi />} />
                     <Route path='/meriis-samsakhurebi/:id' element={<MeriisSamsakhurebi1 />} />
                     <Route path='/meris-tsarmomadgenlebi' element={<MerisWarmomadgenlebi />} />
+                    <Route path='/aaip' element={<AAIP />} />
                     <Route path='/meris-brdzanebebi' element={<MeriaBrdzanebebi />} />
                     <Route path='/meriis-skhdomis-oqmebi' element={<MeriaSkhdomisOqmebi />} />
                     <Route path='/meriis-konkursebi' element={<MeriaKonkursi />} />
@@ -183,6 +186,7 @@ function AnimatedRoutes() {
                     <Route path='/samartlebrivi-aqtebi' element={<SakrebulosSamartlebriviAqtebi />} />
                     <Route path='/konkursebi' element={<SakrebulosKonkursebi />} />
                     <Route path='/skhdomis-tsesrigi' element={<SkhdomisTsesrigi />} />
+                    <Route path='/municipalitetis-biujeti' element={<MunicipalitetisBiujeti />} />
 
                     {/*<Route path='/komisiebis-skhdomis-oqmebi' element={<KomisiebisSkhdomisOqmebi/>}/> */}
                     <Route path='/komisiebis-skhdomis-oqmebi/:id' element={<DefaultSkhdomisOqmebi />} />

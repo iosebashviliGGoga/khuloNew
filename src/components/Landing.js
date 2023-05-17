@@ -70,7 +70,7 @@ function Landing() {
     if (i < 6) {
 
       return <div className="landing-items-container-infos" id={i} key={i}>
-        <Link to={`/presscenter/NEWS/${news[1].geo.rec_id}`}>
+        <a href={`/presscenter/NEWS/${news[1].geo.rec_id}`}>
           <div className='new-image-wrapper'>
             <img src={'https://khulo.gov.ge/' + news[1].geo.img} alt="" />
           </div>
@@ -93,7 +93,7 @@ function Landing() {
               {language == 2 ? " See more" : ""}
               {language == 3 ? " увидеть все" : ""}</span>
           </div>
-        </Link>
+        </a>
       </div>
 
     }
@@ -127,7 +127,7 @@ function Landing() {
 
         <SlickSlider />
         <div className="landing-items margin-280px">
-          <div className="landing-items-info"><Link to='/presscenter/NEWS'>
+          <div className="landing-items-info"><a href='/presscenter/NEWS'>
             <span>
 
 
@@ -135,24 +135,24 @@ function Landing() {
               {language == 2 ? " News" : ""}
               {language == 3 ? " Новости" : ""}
             </span>
-          </Link> </div>
-          <div className="landing-items-info"><Link to='/presscenter/ganckhadebebi'>
+          </a> </div>
+          <div className="landing-items-info"><a href='/presscenter/ganckhadebebi'>
             <span>
               {language == 1 ? " განცხადებები" : ""}
               {language == 2 ? " statements" : ""}
               {language == 3 ? " заявления" : ""}
 
             </span>
-          </Link></div>
-          <div className="landing-items-info"><Link to='/biujeti'>
+          </a></div>
+          <div className="landing-items-info"><a href='/biujeti'>
             <span>
               {language == 1 ? " ბიუჯეტი" : ""}
               {language == 2 ? " Budget" : ""}
               {language == 3 ? " бюджет" : ""}
 
             </span>
-          </Link> </div>
-          <div className="landing-items-info"><Link to='/presscenter/anonsebi'>
+          </a> </div>
+          <div className="landing-items-info"><a href='/presscenter/anonsebi'>
             <span>
               {language == 1 ? "  ანონსები" : ""}
               {language == 2 ? " Announcement" : ""}
@@ -160,8 +160,8 @@ function Landing() {
 
 
             </span>
-          </Link></div>
-          <div className="landing-items-info"><Link to='/meris-angarishi'>
+          </a></div>
+          <div className="landing-items-info"><a href='/meris-angarishi'>
             <span>
               {language == 1 ? "  ანგარიშები" : ""}
               {language == 2 ? " accounts" : ""}
@@ -169,7 +169,7 @@ function Landing() {
 
 
             </span>
-          </Link></div>
+          </a></div>
         </div>
 
 
@@ -189,9 +189,9 @@ function Landing() {
             {newsList}
           </div>
           <div className="about">
-            <span><Link to='/presscenter/NEWS'>{language == 1 ? " სიახლეების გვერდი" : ""}
+            <span><a href='/presscenter/NEWS'>{language == 1 ? " სიახლეების გვერდი" : ""}
               {language == 2 ? " News page" : ""}
-              {language == 3 ? " страница новостей" : ""}</Link></span>
+              {language == 3 ? " страница новостей" : ""}</a></span>
           </div>
         </div>
       </div>

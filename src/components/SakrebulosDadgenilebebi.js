@@ -115,10 +115,11 @@ function SakrebulosDadgenilebebi() {
                 <Helmet><title>{language == 1 ? 'დადგენილებები' : "ASSEMBLY RESOLUTIONS"}</title></Helmet>
 
                 {Object.entries(news).length ? Object.entries(news).map((item, index) => {
-
+                  
 
 
                   return [...Object.entries(item[1])].reverse().filter(news => news[1].geo.pdf_title.includes(search)).map((gank, index) => {
+                    
                     if (gank[1].geo.legal_acts_menu.includes('დადგენილებები'))
                       return <div className="">
                         <a href={`https://khulo.gov.ge${gank[1].geo.pdf}`} target='blank'>

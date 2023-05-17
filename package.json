@@ -1,7 +1,7 @@
 {
   "name": "khulo",
   "version": "0.1.0",
-  "homepage": "http://www.test.georgianart.ge/",
+  "homepage": "",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.9.1",

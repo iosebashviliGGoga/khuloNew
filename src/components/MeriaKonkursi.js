@@ -152,7 +152,7 @@ function MeriaKonkursi() {
    
       
     return [...Object.entries(item[1])].reverse().filter(news => news[1].geo.pdf_title.includes(search)).map((gank,index) =>{
-     if(gank[1].geo.legal_acts_menu.includes('კონკურსები'))
+     if(gank[1].geo.legal_acts_menu==('კონკურსები'))
       return <div className="">
      <a href={`https://khulo.gov.ge${gank[1].geo.pdf}`} target='blank'>
       <span key={index}>
