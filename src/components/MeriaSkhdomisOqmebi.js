@@ -156,7 +156,7 @@ function MeriaSkhdomisOqmebi() {
       
     return Object.entries(item[1]).filter(news => news[1].geo.pdf_title.includes(search)).map((gank,index) =>{
       console.log(gank)
-     if(gank[1].geo.legal_acts_menu=='სხდომის ოქმები? აქ ჯერ არ ვიცი რომელი უნდა წამოვიღო')
+     if(gank[1].geo.legal_acts_menu=='სხდომის ოქმები')
       return <div className="">
      <a href={`https://khulo.gov.ge${gank[1].geo.pdf}`} target='blank' className={gank[1].geo.legal_acts_menu}>
       <span key={index}>

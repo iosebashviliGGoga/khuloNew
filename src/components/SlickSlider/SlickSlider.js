@@ -78,7 +78,7 @@ function SlickSlider() {
           {<div className="full" style={{ Height: '100%' }}>
             <div className="image-gradient"></div>
             <video autoPlay loop muted playsInline>
-              <source src="https://khulo.gov.ge/uploads_script/333473305_208216088535790_1956266680882685671_n.mp4" type="video/mp4" />
+              <source src="https://khulo.gov.ge/uploads_script/Tago.mp4" type="video/mp4" />
             </video>
             <div className="carouselText margin-280px">
 

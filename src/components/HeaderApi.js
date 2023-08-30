@@ -188,7 +188,7 @@ function HeaderApi() {
               {language == 1 && 'ცხელი ხაზი'}
               {language == 2 && 'Hotline'}
               {language == 3 && 'горячая линия'}
-              <span>sfg</span>      551 00 52 72</span>
+              <span>sfg</span>     +995 551 00 52 72</span>
           </div>
 
           {Object.entries(menu).length ? Object.entries(menu).map((item, index) => {

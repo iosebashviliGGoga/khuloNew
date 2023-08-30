@@ -62,7 +62,7 @@ function SajaroInformacia() {
 
 
 
-              return Object.entries(item[1]).filter(news => news[1].geo.pdf_title.includes(search)).map((gank, index) => {
+              return [...Object.entries(item[1])].reverse().filter(news => news[1].geo.pdf_title.includes(search)).map((gank, index) => {
                 if (gank[1].geo.legal_acts_menu.includes('საჯარო ინფორმაცია'))
 
                   return <div className="">

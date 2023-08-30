@@ -81,7 +81,10 @@ function Footer() {
           </Link>
         </div>
         <div className="">
+          <Link to='/peticia'>
           <img src={require('../images/Group 271.png')} alt="" />
+          </Link>
+        
         </div>
 
         <div className="">
