@@ -26,7 +26,7 @@ const form = useRef();
   const sendEmail = (e) =>{
     e.preventDefault();
     
-    emailjs.sendForm('service_e8f3gjt','template_i232rai' , form.current , '0fSYO3iBkEcEh3E8Y' ).then
+    emailjs.sendForm('service_t4ahlkq','template_04knfsc' , form.current , 'vfUOAqLJTI_pBUOYZ' ).then
     (result=> console.log(result),
     (error => console.log(error))
     )
@@ -88,7 +88,7 @@ const handleChange = event => {
           
         </div>
         </div>
-           <textarea id="" cols="20" rows="10" placeholder='შეტყობინება' required name="message"></textarea>
+           <textarea id="" cols="20" rows="10" placeholder={language == 1 ? 'შეტყობინება' : "MESSAGE"} required name="message"></textarea>
            <button className='miwereMers-submit' type='submit'>{language == 1 ? "გაგზავნა" : "SEND"}</button>
            
         </form>
@@ -98,9 +98,9 @@ const handleChange = event => {
         <div className='miwereMers-container'>
          <img src={require('../images/Group 271.png')} alt="" />
          <div className="miwereMers-info">
-          <span className='header'>{language == 1 ? "ხულოს მუნიციპალიტეტის მერია"   : "KHULO CITY HALL"}</span>
-          <span>+995 551 00 52 72</span>
-          <span>{language == 1 ? "ტბელ აბუსერისძის ქუჩა,N1 . დაბა ხულო,აჭარა ,საქართველო"  :  "Tbel abuseridze street N1, Township Khulo, Adjara, Georgia"}</span>
+          <span className='header'>{language == 1 ? "ხულოს მუნიციპალიტეტის საკრებულო"   : "KHULO CITY ASSMEBLY"}</span>
+          <span>+995 577 52 97 14</span>
+          <span>{language == 1 ? "ტბელ აბუსერისძის ქუჩა,N1 . დაბა ხულო,აჭარა, საქართველო"  :  "Tbel abuseridze street N1, Township Khulo, Adjara, Georgia"}</span>
          </div>
         </div>
        </div>
