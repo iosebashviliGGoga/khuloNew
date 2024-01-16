@@ -86,6 +86,7 @@ import SakrebuloAngarishebi from './components/SakrebuloAngarishebi'
 import AAIP from './components/AAIP'
 import MunicipalitetisBiujeti from './components/MunicipalitetisBiujeti'
 import Peticia from './components/Peticia'
+import BiujetiSakrebulo from './components/BiujetiSakrebulo'
 //import HeaderApi from './components/HeaderApi'
 function AnimatedRoutes() {
     const location = useLocation()
@@ -168,7 +169,7 @@ function AnimatedRoutes() {
                     <Route path='/sakrebulos-aparati' element={<SakrebuloAparati />} />
                     <Route path='/sakrebulos-aparatis-moadgile' element={<SakrebulosAparatisMoadgile />} />
                     <Route path='/tsevrebis-angarishi' element={<SakrebuloAngarishebi />} />
-
+                    <Route path='/biujeti-sakrebulo' element={<BiujetiSakrebulo />} />
 
 
                     <Route path='/sakrebulos-biuro' element={<SakrebulosBiuro />} />

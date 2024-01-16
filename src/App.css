@@ -3627,6 +3627,31 @@ div.slick-slide{
 
 }
 
+.years--filter__container{
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.years--filter__container li{
+  padding: 10px 20px;
+  border: 1px solid #04243F;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+.years--filter__container li:hover,
+.years--filter__container li.active{
+  color: white;
+  background-color: #04243F;
+}
+.years--itemContainer div:last-child{
+  margin-bottom: 50px;
+}
+.years--itemContainer:not(.active){
+  display: none;
+}
+
 @media only screen and (max-width: 1200px){
   .container-text span{
     font-size: 20px;
