@@ -1,34 +1,52 @@
 import React, { useEffect, useState, useRef, useLayoutEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FaAngleRight } from 'react-icons/fa'
+import { Helmet } from 'react-helmet-async'
 import pdf from '../images/collection-pdf.png'
 import { useContext } from 'react'
 import { SearchContext } from './Contexts/Context'
-import { Helmet } from 'react-helmet-async'
 function SkhdomisOqmebi() {
+
   const ref = useRef(null)
   const [width, setWidth] = useState(10)
+
   // import { useContext } from 'react'
   //import { SearchContext } from './Contexts/Context'
   // .filter(news => news[1].geo.pdf_title.includes(search))
   const { search } = useContext(SearchContext)
   const { language } = useContext(SearchContext)
-
-
-
-
   const [news, setNews] = useState({})
+  const [uniqueYears, setUniqueYears] = useState(new Set());
+  const [activeYear, setActiveYear] = useState(null);
+
+  const handleYearClick = (year) => {
+    setActiveYear(year);
+  };
   useEffect(() => {
     const link = `https://khulo.gov.ge/api/legal_acts.php`;
     fetch(link)
       .then((response) => response.json())
       .then((data) => {
 
-        //console.log(data)
-        data[`საკრებულოს სხდომის ოქმები`] && setNews(data[`საკრებულოს სხდომის ოქმები`])
-        console.log(data[`საკრებულოს სხდომის ოქმები`])
-        // console.log('news', news)
+
+        let oqmebi = data['საკრებულოს სხდომის ოქმები']
+
+        const years = Object.entries(oqmebi).map((oqmi) => oqmi[1].geo.year);
+        const uniqueYearsSet = new Set(years.filter(year => year)); // Filtering out null values
+
+        setUniqueYears(uniqueYearsSet);
+        setActiveYear(years.reverse()[0]);
+        setNews(data['საკრებულოს სხდომის ოქმები'])
+
+
+
+
+
+        // const uniqueYearsSet = new Set(data.filter(year => year)); // Filtering out null values
+
+        // setUniqueYears(uniqueYearsSet);
+        // console.log(data)
+
 
         // console.log('object keys menu', Object.keys(menu))
         // console.log('object entries აქტები', Object.entries(data).map((item,index)=> console.log(item,index)))
@@ -42,6 +60,7 @@ function SkhdomisOqmebi() {
 
   }, [])
   const [menu, setMenu] = useState({})
+
   useEffect(() => {
     const link = 'https://khulo.gov.ge/api/site_menu1.php';
     fetch(link)
@@ -86,6 +105,12 @@ function SkhdomisOqmebi() {
       })
     }
   }) : "LOADING"
+
+
+  useLayoutEffect(() => {
+    setWidth(ref.current.offsetWidth);
+
+  })
   const menuName = Object.entries(menu).length ? Object.entries(menu).find((item, index) => {
     const windoww = window.location.pathname;
     const result = windoww.split('/').pop();
@@ -97,14 +122,6 @@ function SkhdomisOqmebi() {
 
   }) : ""
 
-  useLayoutEffect(() => {
-    setWidth(ref.current.offsetWidth);
-
-  })
-
-
-
-
 
   return (
     <motion.div
@@ -115,34 +132,68 @@ function SkhdomisOqmebi() {
 
       <div className="news-container margin-280px">
         <header>
-          <span className='big' ref={ref} style={{ marginRight: width / 2 }}>{language == 1 ? "სამართლებრივი აქტები" : "LEGAL ACTS"}</span>
+          <span className='big' ref={ref} style={{ marginRight: width / 2 }}> {language == 1 ? "სამართლებრივი აქტები" : "LEGAL ACTS"}</span>
 
           <span>{menuName[1] ? (language == 1 ? menuName[1].name_geo : menuName[1].name_eng) : ""}</span>
-
         </header>
         <div>
 
           <div className='sakrebulo-landing'>
             <div className="landing-container">
               <div className="sajaroInfo ">
-
+                <ul className='years--filter__container'>
+                  {[...uniqueYears].reverse().map((year, index) => (
+                    <li key={index} className={activeYear == year ? "active" : ""} data-year={year} onClick={() => handleYearClick(year)}>{year}</li>
+                  ))}
+                </ul>
                 <Helmet><title>{menuName[1] ? (language == 1 ? menuName[1].name_geo : menuName[1].name_eng) : ""}</title></Helmet>
 
-                {Object.entries(news).length ? [...Object.entries(news)].reverse().filter(news => news[1].geo.pdf_title.includes(search)).map((item, index) => {
+                {/* {Object.entries(news).length && Object.entries(news).map((item, index) => {
+                  console.log(item)
 
 
-                  return <div className="">
-                    <a href={`https://khulo.gov.ge${item[1].geo.pdf}`} target='blank'>
-                      <span key={index}>{language == 1 ? item[1].geo.pdf_title : item[1].eng.pdf_title}</span>
+                  return [...Object.entries(item)].reverse().filter(news => news.geo.pdf_title.includes(search)).map((gank, index) => {
 
-                      <img src={pdf} alt="" />
+                    if (gank[1].geo.legal_acts_menu.includes('ბიუროს სხდომის')) {
+                      if (gank[1].geo.year = '2025') {
+                        // console.log(gank[1])
+                        return <div className="">
+                          <a href={`https://khulo.gov.ge${gank[1].geo.pdf}`} target='blank'>
+                            <span key={index}>{language == 1 ? gank[1].geo.pdf_title : gank[1].eng.pdf_title}</span>
 
-                    </a>
-                  </div>
+                            <img src={pdf} alt="" />
+
+                          </a>
+                        </div>
+                      }
 
 
+                    }
+                  })
+                })} */}
 
-                }) : ""}
+                {[...uniqueYears].reverse().map((year, index) => (
+                  <figure key={index} className={year === activeYear ? 'years--itemContainer active' : 'years--itemContainer'}>
+                    {Object.entries(news).length &&
+                      [...Object.entries(news)].reverse().filter(item => item[1].geo.pdf_title.includes(search)).map((item, innerIndex) => {
+                        if (item[1].geo.year == year) {
+                        
+                          return (
+                          
+                              <div className="" key={innerIndex}>
+                                <a href={`https://khulo.gov.ge${item[1].geo.pdf}`} target='blank'>
+                                  <span>{language == 1 ? item[1].geo.pdf_title : item[1].eng.pdf_title}</span>
+                                  <img src={pdf} alt="" />
+                                </a>
+                              </div>
+                           
+                          );
+                        }
+                        return null; // Add this line to handle the case when the condition is not met
+                      })}
+                  </figure>
+                ))}
+
 
               </div>
 

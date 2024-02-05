@@ -182,7 +182,7 @@ function BiurosOqmebi() {
                           
                               <div className="" key={innerIndex}>
                                 <a href={`https://khulo.gov.ge${item[1].geo.pdf}`} target='blank'>
-                                  <span>{language === 1 ? item[1].geo.pdf_title : item[1].eng.pdf_title}</span>
+                                  <span>{language == 1 ? item[1].geo.pdf_title : item[1].eng.pdf_title}</span>
                                   <img src={pdf} alt="" />
                                 </a>
                               </div>
