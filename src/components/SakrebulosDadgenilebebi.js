@@ -60,7 +60,7 @@ function SakrebulosDadgenilebebi() {
 
   }, [])
   const [menu, setMenu] = useState({})
-  
+
 
   useEffect(() => {
     const link = 'https://khulo.gov.ge/api/site_menu1.php';
@@ -116,9 +116,9 @@ function SakrebulosDadgenilebebi() {
     const windoww = window.location.pathname;
     const result = windoww.split('/').pop();
     const slugg = item[1].slug
-   
+
     if (result === slugg && slugg) {
-      
+
       return (language == 1 ? item[1].name_geo : item[1].name_eng)
 
     }
@@ -180,16 +180,16 @@ function SakrebulosDadgenilebebi() {
                     {Object.entries(news).length &&
                       [...Object.entries(news)].reverse().filter(item => item[1].geo.pdf_title.includes(search)).map((item, innerIndex) => {
                         if (item[1].geo.year == year) {
-                        
+
                           return (
-                          
-                              <div className="" key={innerIndex}>
-                                <a href={`https://khulo.gov.ge${item[1].geo.pdf}`} target='blank'>
-                                  <span>{language == 1 ? item[1].geo.pdf_title : item[1].eng.pdf_title}</span>
-                                  <img src={pdf} alt="" />
-                                </a>
-                              </div>
-                           
+
+                            <div className="" key={innerIndex}>
+                              <a href={`https://khulo.gov.ge${item[1].geo.pdf}`} target='blank'>
+                                <span>{language == 1 ? item[1].geo.pdf_title : item[1].eng.pdf_title}</span>
+                                <img src={pdf} alt="" />
+                              </a>
+                            </div>
+
                           );
                         }
                         return null; // Add this line to handle the case when the condition is not met
