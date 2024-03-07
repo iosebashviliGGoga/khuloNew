@@ -63,14 +63,19 @@ function SajaroInformacia() {
 
 
               return [...Object.entries(item[1])].reverse().filter(news => news[1].geo.pdf_title.includes(search)).map((gank, index) => {
-                if (gank[1].geo.legal_acts_menu.includes('საჯარო ინფორმაცია'))
-
+                if (gank[1].geo.legal_acts_menu.includes('საჯარო ინფორმაცია') && gank[1].geo.rec_id == 500) {
+                  return <div className="">
+                    <a href={`https://khulo.gov.ge/uploads_script/useful_links/files.zip`} target='blank'>
+                      <span key={index}>{language == 1 ? gank[1].geo.pdf_title : gank[1].eng.pdf_title}</span>
+                      <img src={pdf} alt="" />
+                    </a>
+                  </div>
+                }
+                else if (gank[1].geo.legal_acts_menu.includes('საჯარო ინფორმაცია'))
                   return <div className="">
                     <a href={`https://khulo.gov.ge${gank[1].geo.rec_id == 112 ? "/uploads_script/skopingi.rar" : gank[1].geo.pdf}`} target='blank'>
                       <span key={index}>{language == 1 ? gank[1].geo.pdf_title : gank[1].eng.pdf_title}</span>
-
                       <img src={pdf} alt="" />
-
                     </a>
                   </div>
               })
