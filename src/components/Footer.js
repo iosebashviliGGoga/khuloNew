@@ -159,6 +159,7 @@ function Footer() {
         </div>
         <div className="credits padding-280px">
           <div className="">
+            {/* <img src={logo} alt="" /> */}
             <img src={logo} alt="" />
           </div>
           <div className="">
