@@ -21,7 +21,7 @@ function SakrebulosTavmjdomarisMoadgileebi() {
    fetch(link)
   .then((response) => response.json())
   .then((data) => {
-
+    
    // console.log(data)
     setMembers(data)
    // console.log(data)
@@ -143,7 +143,7 @@ function SakrebulosTavmjdomarisMoadgileebi() {
         <div>
           
           <div className='sakrebulo-landing'>
-            <div className="landing-container">
+            <div className="landing-container moadgileebi--grid">
               
             {membersList}
             </div>

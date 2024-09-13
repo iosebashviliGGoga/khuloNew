@@ -112,7 +112,7 @@ function  SakrebulosTavmjdomarisMoadgile() {
       <div>
         
         <div className='sakrebulo-landing sakrebulo1'>
-          <div className="landing-container">
+          <div className="landing-container ">
           <div className='image-wrapper'>
             <img src={'https://khulo.gov.ge/'+ member[1].geo.img} alt="" />
             <div className="sakrebulo-landing-near-image">

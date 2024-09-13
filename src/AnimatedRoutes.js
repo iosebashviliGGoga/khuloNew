@@ -87,6 +87,8 @@ import AAIP from './components/AAIP'
 import MunicipalitetisBiujeti from './components/MunicipalitetisBiujeti'
 import Peticia from './components/Peticia'
 import BiujetiSakrebulo from './components/BiujetiSakrebulo'
+import MerisMoadgileebi from './components/MerisMoadgileebi'
+import MerisMoadgileebi1 from './components/MerisMoadgileebi1'
 //import HeaderApi from './components/HeaderApi'
 function AnimatedRoutes() {
     const location = useLocation()
@@ -141,6 +143,8 @@ function AnimatedRoutes() {
                     <Route path='/meriis-konkursebi' element={<MeriaKonkursi />} />
                     <Route path='/meris-angarishi' element={<MeriaAngarishi />} />
 
+                    <Route path='/meris-moadgileebi' element={<MerisMoadgileebi />} />
+                    <Route path='/meris-moadgileebi/:id' element={<MerisMoadgileebi1 />} />
 
 
                     {/*<Route path='/links' element={<SasargebloBmulebi/>} /> */}
