@@ -1691,7 +1691,7 @@ font-family: Firago-Medium;
     font-size: 14px;
     font-family: Firago-Medium;
     padding-top: 10px;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     color: black;
   }
   .sakrebulo-landing .landing-container .landing-items-container-infos span.header{

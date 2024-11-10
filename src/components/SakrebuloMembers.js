@@ -1,164 +1,189 @@
-import React, { useState , useEffect , useRef , useLayoutEffect} from 'react'
+import React, { useState, useEffect, useRef, useLayoutEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 
 import { useContext } from 'react'
-  import { SearchContext } from './Contexts/Context'
-import {Helmet} from 'react-helmet-async'
+import { SearchContext } from './Contexts/Context'
+import { Helmet } from 'react-helmet-async'
 function SakrebuloMembers() {
   const ref = useRef(null)
   const [width, setWidth] = useState(10)
-   // import { useContext } from 'react'
+  // import { useContext } from 'react'
   //import { SearchContext } from './Contexts/Context'
   // .filter(news => news[1].geo.title.includes(search)).
-  const {search} = useContext(SearchContext)
-  const {language} = useContext(SearchContext)
+  const { search } = useContext(SearchContext)
+  const { language } = useContext(SearchContext)
   const [members, setMembers] = useState({})
   useEffect(() => {
     const link = `https://khulo.gov.ge/api/members.php?`;
-   fetch(link)
-  .then((response) => response.json())
-  .then((data) => {
+    fetch(link)
+      .then((response) => response.json())
+      .then((data) => {
 
-   // console.log(data)
-    setMembers(data)
-   //console.log(data)
-   // console.log('news', news)
-    
-   // console.log('object keys menu', Object.keys(menu))
-    //console.log('object entries news', Object.entries(data))
-  // console.log(Object.entries(data).length)
- 
-   });
-  // console.log('news', news)
-  // console.log('news 0', news[0])
-  // console.log(JSON.parse(localStorage.getItem('languageLink')))
+        // console.log(data)
+        setMembers(data)
+        //console.log(data)
+        // console.log('news', news)
 
-  //console.log('sheicvala!')
-  },[])
+        // console.log('object keys menu', Object.keys(menu))
+        //console.log('object entries news', Object.entries(data))
+        // console.log(Object.entries(data).length)
+
+      });
+    // console.log('news', news)
+    // console.log('news 0', news[0])
+    // console.log(JSON.parse(localStorage.getItem('languageLink')))
+
+    //console.log('sheicvala!')
+  }, [])
 
 
-  const [menu,setMenu] = useState({})
+  const [menu, setMenu] = useState({})
   useEffect(() => {
-      const link = 'https://khulo.gov.ge/api/site_menu1.php';
-     fetch(link)
-    .then((response) => response.json())
-    .then((data) => {
-  
-     // console.log('data.menu',data.menu)
-      setMenu(data.menu)
-     
-    //  console.log('menu', menu)
-      
-     
-    //  console.log('object entries', Object.entries(menu))
-  
-      Object.entries(menu).map(item =>{
-       
-        if(item[1].level == 1)
-       { 
-        //console.log('entries item', item[1].name_eng , item[1].level)
-      }
-      })
-   
-     });
-  
-  
-    
-    },[])
-    const presscenterList = Object.entries(menu).length ?  Object.entries(menu).map((item,index)=>{
-      
-    if(item[1].level == 1 && item[1].name_geo==('საკრებულო')){
-  
-      return Object.entries(menu).map((qveItem,index)=>{
-        if(qveItem[1].parent_id == item[1].cat_id){
+    const link = 'https://khulo.gov.ge/api/site_menu1.php';
+    fetch(link)
+      .then((response) => response.json())
+      .then((data) => {
+
+        // console.log('data.menu',data.menu)
+        setMenu(data.menu)
+
+        //  console.log('menu', menu)
+
+
+        //  console.log('object entries', Object.entries(menu))
+
+        Object.entries(menu).map(item => {
+
+          if (item[1].level == 1) {
+            //console.log('entries item', item[1].name_eng , item[1].level)
+          }
+        })
+
+      });
+
+
+
+  }, [])
+  const presscenterList = Object.entries(menu).length ? Object.entries(menu).map((item, index) => {
+
+    if (item[1].level == 1 && item[1].name_geo == ('საკრებულო')) {
+
+      return Object.entries(menu).map((qveItem, index) => {
+        if (qveItem[1].parent_id == item[1].cat_id) {
           const windoww = window.location.pathname;
           const result = windoww.split('/').pop();
           const slugg = qveItem[1].slug
-          return <span key={index} className={result === slugg? "active" :""}>
-                    <Link to={`/${qveItem[1].slug}`}>
-                    {language == 1 ? qveItem[1].name_geo : qveItem[1].name_eng}
-                    </Link>
-                 </span>
+          return <span key={index} className={result === slugg ? "active" : ""}>
+            <Link to={`/${qveItem[1].slug}`}>
+              {language == 1 ? qveItem[1].name_geo : qveItem[1].name_eng}
+            </Link>
+          </span>
         }
       })
-     }
-    })  : "LOADING"
+    }
+  }) : "LOADING"
 
-   
 
-    const membersList = Object.entries(members).sort((a, b) => b[1].geo.date.localeCompare(a[1].geo.date)).filter(news => news[1].geo.title.includes(search)).map((news) => 
-        
-             {
-              if(news[1].geo.position.includes('საკრებულოს წევრი') || news[1].geo.position.includes('საკრებულოს თავჯდომარე') || news[1].geo.position.includes('საკრებულოს თავმჯდომარის მოადგილე') || news[1].geo.position.includes('საკრებულოს თავჯდომარის პირველი მოადგილე')){
-                return  <div className="landing-items-container-infos" id={news[0]} key={news[0]}>
-                <Link to={`/sakrebuloMembers/${news[0]}`}>
-                  <div className="new-image-wrapp">
-                  <img src={'https://khulo.gov.ge/'+(news[1].geo.img)} alt="" />
-                  </div>
-                  <div>
+  const [membersList, setMembersList] = useState([]);
+  useEffect(() => {
+    const uniqueMembers = new Map();
+
+    Object.entries(members)
+        .sort((a, b) => b[1].geo.date.localeCompare(a[1].geo.date))
+        .filter(news => news[1].geo.title.includes(search))
+        .forEach((news) => {
+            const title = news[1].geo.title;
+            const position = news[1].geo.position;
+            const isPreferredPosition = position.includes('საკრებულოს წევრი');
+            const isRelevantPosition =
+                position.includes('საკრებულოს წევრი') ||
+                position.includes('საკრებულოს თავჯდომარე') ||
+                position.includes('საკრებულოს თავმჯდომარის მოადგილე') ||
+                position.includes('საკრებულოს თავჯდომარის პირველი მოადგილე');
+
+            // Only process news items with relevant positions
+            if (isRelevantPosition) {
+                // If the title already exists, prioritize 'საკრებულოს წევრი'
+                if (uniqueMembers.has(title)) {
+                    if (isPreferredPosition) {
+                        uniqueMembers.set(title, news);
+                    }
+                } else {
+                    // Otherwise, add the title if it hasn't been added
+                    uniqueMembers.set(title, news);
+                }
+            }
+        });
+
+    const updatedMembersList = Array.from(uniqueMembers.values()).map((news) => (
+        <div className="landing-items-container-infos" id={news[0]} key={news[0]}>
+            <Link to={`/sakrebuloMembers/${news[0]}`}>
+                <div className="new-image-wrapp">
+                    <img src={'https://khulo.gov.ge/' + news[1].geo.img} alt="" />
+                </div>
+                <div>
                     <span className='time'>{language == 1 ? news[1].geo.title : news[1].eng.title}</span>
                     <span className='header'>{language == 1 ? news[1].geo.position : news[1].eng.position}</span>
-                    
-                  </div>
-                </Link>
-               </div>
-              }
-              
+                </div>
+            </Link>
+        </div>
+    ));
 
-              })
-              
-              useLayoutEffect(() => { 
-                setWidth(ref.current.offsetWidth); 
-               
-              })
-              const menuName = Object.entries(menu).length ?  Object.entries(menu).find((item,index)=>{
-                const windoww = window.location.pathname;
-                const result = windoww.split('/').pop();
-                const slugg = item[1].slug
-                if(result === slugg){ 
-                    return (language == 1 ? item[1].name_geo : item[1].name_eng)
-            
-                } 
-                
-             }) : ""
+    setMembersList(updatedMembersList);
+}, [members, search, language]);
+
+  useLayoutEffect(() => {
+    setWidth(ref.current.offsetWidth);
+
+  })
+  const menuName = Object.entries(menu).length ? Object.entries(menu).find((item, index) => {
+    const windoww = window.location.pathname;
+    const result = windoww.split('/').pop();
+    const slugg = item[1].slug
+    if (result === slugg) {
+      return (language == 1 ? item[1].name_geo : item[1].name_eng)
+
+    }
+
+  }) : ""
 
   return (
     <motion.div
-    intial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{opacity: 0}}>
-      
+      intial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}>
+
       <div className="news-container margin-280px">
         <header>
-          <span className='big'ref={ref} style={{marginRight:  width / 2    }}> {language == 1 ?  "საკრებულო"  :  "KHULO CITY ASSEMBLY"}</span>
-          <span>{menuName  ? ((language == 1 ? menuName[1].name_geo   : menuName[1].name_eng)) : ""  }</span>
+          <span className='big' ref={ref} style={{ marginRight: width / 2 }}> {language == 1 ? "საკრებულო" : "KHULO CITY ASSEMBLY"}</span>
+          <span>{menuName ? ((language == 1 ? menuName[1].name_geo : menuName[1].name_eng)) : ""}</span>
           <Helmet>
-            <title>{menuName  ? ((language == 1 ? menuName[1].name_geo   : menuName[1].name_eng)) : ""  }</title>
+            <title>{menuName ? ((language == 1 ? menuName[1].name_geo : menuName[1].name_eng)) : ""}</title>
           </Helmet>
         </header>
         <div>
-          
+
           <div className='sakrebulo-landing'>
             <div className="landing-container">
-              
-            {membersList}
+
+              {membersList}
             </div>
           </div>
           <div className="presscenter-info">
-          
-          {presscenterList}
-            </div>
+
+            {presscenterList}
+          </div>
         </div>
 
 
-          
+
       </div>
 
 
 
-      </motion.div>
+    </motion.div>
   )
 }
 
